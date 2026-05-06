@@ -10,15 +10,15 @@ Built to solve the Alpine Linux + Python 3.12 + pyexpat incompatibility that bre
 ✅ **AWS CLI v2** - Works perfectly (glibc-based, no pyexpat errors)  
 ✅ **jq** - JSON query tool included  
 ✅ **Optimized** - Single RUN layer, minimal footprint (~400MB)  
-✅ **Production-ready** - Used in PSKR CI/CD pipelines  
+✅ **Production-ready** - Used in PSKR CI/CD pipelines
 
 ## Supported Versions
 
-| Component | Version |
-|-----------|---------|
-| Terraform | 1.10.3 |
-| AWS CLI | 2.x latest |
-| Python | 3.12 |
+| Component  | Version        |
+| ---------- | -------------- |
+| Terraform  | 1.10.3         |
+| AWS CLI    | 2.x latest     |
+| Python     | 3.12           |
 | Base Image | Debian 12 slim |
 
 ## Quick Start
@@ -113,7 +113,7 @@ steps:
 
 The official `hashicorp/terraform:1.10.3` image (Alpine Linux) has a critical incompatibility:
 
-```
+```text
 ImportError: Error relocating /usr/lib/python3.12/lib-dynload/pyexpat.cpython-312-x86_64-linux-musl.so:
 XML_SetAllocTrackerActivationThreshold: symbol not found
 ```
@@ -128,11 +128,11 @@ This image uses `python:3.12-slim` (Debian-based with glibc) instead of Alpine, 
 
 ## Comparison
 
-| Image | Size | aws-cli | Terraform | Compatible |
-|-------|------|---------|-----------|------------|
-| `hashicorp/terraform:1.10.3` | 200MB | ✗ (pyexpat error) | 1.10.3 | No |
-| `zenika/terraform-aws-cli:latest` | 300MB | ✓ | 1.6.5 | Yes |
-| `fspskr/terraform-aws-cli:1.10.3` | 400MB | ✓ | 1.10.3 | Yes |
+| Image                             | Size  | aws-cli           | Terraform | Compatible |
+| --------------------------------- | ----- | ----------------- | --------- | ---------- |
+| `hashicorp/terraform:1.10.3`      | 200MB | ✗ (pyexpat error) | 1.10.3    | No         |
+| `zenika/terraform-aws-cli:latest` | 300MB | ✓                 | 1.6.5     | Yes        |
+| `fspskr/terraform-aws-cli:1.10.3` | 400MB | ✓                 | 1.10.3    | Yes        |
 
 ## License
 
